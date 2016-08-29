@@ -1,0 +1,64 @@
+*{
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+html,body{
+
+  height:100%;
+  width:100%;
+
+}
+
+.video, #project-description{
+
+	width: 640px;
+}
+
+.video, .scrubber-wrapper{
+
+	margin:auto;
+}
+.video, .scrubber-wrapper{
+	display:block;
+}
+
+.video{
+	height:320px;
+	background-color:#000;
+	padding:2px 0 2px 0;
+}
+
+.log{
+
+	display:block;
+}
+
+h1, #note{
+	font-family:sans-serif;
+	text-align:center;
+
+}
+
+h1{
+	margin:10% auto 5px auto;
+}
+
+#note{
+	display:block;
+	color:#F44336;
+
+}
+.scrubber-wrapper{
+	margin-top:10px;
+}
+
+#project-description{
+	display:block;
+	width:640px;
+	margin:10px auto 0 auto;
+	padding:5px;
+}
+
