@@ -66,6 +66,35 @@ var scrubber = function(s) {
 
         },
 
+        //  given the position => (number), and the proper bounds,
+        //  checks if the position is within the min and maxValue
+        //  returns true if it is, false if it isn't
+
+        setBounds = function( number, minValue, maxValue ){
+
+            /*var lowerBound = ( Math.min( number, minValue ) >= minValue ),
+                upperBound = ( Math.max( number, maxValue ) <= maxValue );
+
+
+                if( lowerBound && upperBound ){
+
+
+
+                    return true;
+
+                }else{
+
+                    return false;
+                }*/
+
+
+                //  clamps the number
+
+
+            return Math.min(Math.max(number, minValue), maxValue);
+
+        },
+
         //  given seconds, returns the time in the format
         //  hh:mm:ss
         convertTime = function(cSeconds) {
@@ -104,9 +133,6 @@ var scrubber = function(s) {
 
             //  if true, shows time, else doesn't show
 
-
-            if (settings.scrubber.showTime) {
-
                 elements.hoverTime.innerHTML = findTime(mousePos);
                 elements.hoverTime.classList.remove('hide');
                 elements.hoverTime.setAttribute(
@@ -115,8 +141,6 @@ var scrubber = function(s) {
                     'left: ' + hoverPos + 'px'
 
                 );
-
-            }
         },
 
         bind = function() {
@@ -239,22 +263,43 @@ var scrubber = function(s) {
 
             //  check if the mousedown variable is true
 
-            var scrubberPos = ((event.x - this.offsetLeft) - elements.scrubber.offsetWidth / 2);
+
+
+            var boundedPosition = setBounds( 
+
+                ((event.x - this.offsetLeft) - elements.scrubber.offsetWidth / 2),
+
+                0,
+
+                this.offsetWidth 
+
+                );
+
+            //var scrubberPos = ((event.x - this.offsetLeft) - elements.scrubber.offsetWidth / 2);
 
             elements.scrubberShadow.classList.remove('hide');
 
-            elements.scrubberShadow.setAttribute(
 
-                'style',
-                'left: ' + scrubberPos + 'px'
+            //console.log( "IN BOUND: " + setBounds( (event.x - this.offsetLeft) , 0, this.offsetWidth ) );
 
-            )
-            hoverTime(
 
-                event.x,
-                scrubberPos
 
-            );
+                elements.scrubberShadow.setAttribute(
+
+                    'style',
+                    'left: ' + boundedPosition + 'px'
+
+                );
+
+                hoverTime(
+
+                    event.x,
+                    boundedPosition
+
+                );
+
+
+
 
             if (settings._mouseDown) {
 

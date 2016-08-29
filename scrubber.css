@@ -3,8 +3,10 @@
 	visibility:hidden;
 }
 .scrubber-wrapper{
+  display:block;
   height:10px;
   width:640px;
+  max-width: 640px;
   background-color:#dfdfdf;
 }
 
@@ -13,14 +15,6 @@
 	border-radius:2px;
 }
 
-/*
-.scrubber-wrapper:hover{
-  height:5px;
-}
-.scrubber-wrapper:hover  .scrubber-seek .scrubber-seek-shadow{
-    top:-70000px;
-}
-*/
 
 .scrubber-progress{
 

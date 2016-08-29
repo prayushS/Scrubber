@@ -59,7 +59,7 @@
 	
 
 </div>
-<script src = "scrubber.test.js"></script>
+<script src = "scrubber.js"></script>
 
 <script>
 	
