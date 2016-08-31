@@ -13,7 +13,7 @@
 	<video class = "video" data-state="play" data-scrub = "off">
 		
 
-		<source src = "http://localhost:8888/videoPlayer/cane.mp4" type = "audio/mp3">
+		<source src = "http://www.html5rocks.com/en/tutorials/video/basics/devstories.webm" type = "audio/mp3">
 
 	</video>
 	<!-- 

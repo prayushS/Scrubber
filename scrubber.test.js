@@ -1,4 +1,6 @@
 var scrubber = function(s) {
+    
+    'use strict';
 
     var elements = {
 
