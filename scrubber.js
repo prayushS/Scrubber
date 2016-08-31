@@ -41,11 +41,11 @@ var scrubber = function(s) {
             *   perform other checks on mouse events, so the video. doesn't "accedentally" get played
             *   make the progress on the video. "smoother" ( IMPORTANT )
             *   need an updateProgress function, which tracks the progress if the video is playing
-        
+            *   set bounds on the elements.scrubberShadow 
+
         *   TO DO
 
-
-            *   set bounds on the elements.scrubberShadow
+            *   Make sure the video doesn't replay when the scrubber bound is dragged farther than its upperbound
             *   Show Buffer
 
     */
@@ -211,6 +211,42 @@ var scrubber = function(s) {
 
             elements.scrubberWrapper.addEventListener('mouseout', mouseOut, false);
 
+            window.addEventListener('mousemove', function(){
+
+                if( settings._mouseDown ){
+
+
+
+                    elements.video.currentTime = ((event.x - elements.scrubberWrapper.offsetLeft) / elements.scrubberWrapper.offsetWidth) * settings.duration;
+
+
+                }
+
+            },false);
+
+
+            window.addEventListener('mouseup', function(){
+
+
+                if( settings._mouseDown ){
+
+
+                    settings._mouseDown = false;
+
+                    elements.video.setAttribute('data-scrub', 'off');
+
+
+                    if( elements.video.getAttribute('data-state') != "rewind" ){
+                        
+                        elements.video.play();
+                    }
+
+
+                }
+
+
+            },false);
+
         },
 
 
@@ -240,7 +276,7 @@ var scrubber = function(s) {
 
         },
         mouseOut = function() {
-            settings._mouseDown = false;
+            //settings._mouseDown = false;
 
 
             if (settings.scrubber.showTime) {
@@ -249,12 +285,12 @@ var scrubber = function(s) {
 
             }
 
-            if (elements.video.getAttribute('data-scrub') == "on") {
+            /*if (elements.video.getAttribute('data-scrub') == "on") {
 
                 elements.video.play();
 
-            }
-            elements.video.setAttribute('data-scrub', 'off');
+            }*/
+            //elements.video.setAttribute('data-scrub', 'off');
             elements.scrubberShadow.classList.add('hide');
 
         },
@@ -334,6 +370,9 @@ var scrubber = function(s) {
 
 
     s = {
+
+
+        build: '1.0.0',
 
         initialize: function(videoOptions, scrubberOptions) {
 
