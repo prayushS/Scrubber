@@ -32,6 +32,10 @@
 	<div class="scrubber-wrapper">
 
 
+  		<!--
+
+		*	for testing purposes only
+		
   		<div class="scrubber-progress">
 
 			<span class = "scrubber-time hide"></span>
@@ -40,7 +44,7 @@
 
     		<div class="scrubber-seek-shadow hide"></div>
 
-  		</div>
+  		</div>-->
 </div>
 
 
