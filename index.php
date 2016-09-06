@@ -17,11 +17,8 @@
 
 	</video>
 	<!-- 
-			http://localhost:8888/videoPlayer/cane.mp4
+
 			http://www.html5rocks.com/en/tutorials/video/basics/devstories.webm
-			http://i.imgur.com/zvATqgs.mp4
-
-
 
 			*	File Types
 
